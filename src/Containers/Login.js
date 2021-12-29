@@ -102,7 +102,7 @@ function Login(props) {
                             }
 
                             <p>or</p>
-                            <Button border  onClick={() => handleSigninGoogle()}>Sign in with Google</Button>
+                            <Button color="#fff" border  onClick={() => handleSigninGoogle()}>Sign in with Google</Button>
 
                             {
                                 userType === 'Login' ?

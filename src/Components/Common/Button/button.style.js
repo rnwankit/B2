@@ -9,8 +9,8 @@ const BaseButton = styled(Button)`
 `;
 
 export const PrimaryButton = styled(BaseButton)`
-    margin: 16px;
-    background: ${props => props.border ? '#fff' : '#FF6337'};
+    margin: 4px;
+    background: ${props => props.color ? props.color : '#FF6337'};
     color: ${props => props.border ? '#000' : '#fff'} ;
     border-radius: 50px;
     padding: 8px 25px;
