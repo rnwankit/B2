@@ -10,6 +10,7 @@ import About from './Containers/About';
 import pageNotFound from './Components/pageNotFound';
 import Login from './Containers/Login';
 import Counter from './Containers/Counter';
+import Medicines from './Containers/Medicines';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/pageNotFound" component={pageNotFound} />
         <Route path="/login" component={Login} />
         <Route path="/counter" component={Counter} />
+        <Route path="/medicines" component={Medicines} />
         <Redirect to="/pageNotFound" />
       </Switch>
       <Footer />
