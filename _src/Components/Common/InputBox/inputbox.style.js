@@ -1,4 +1,4 @@
-import { FormFeedback, Input } from "reactstrap";
+import { Input } from "reactstrap";
 import styled from "styled-components";
 
 
@@ -25,8 +25,3 @@ export const InputBoxStyle = styled(Input)`
         box-shadow: none;
     }
 `;
-
-export const InputBoxError = styled(FormFeedback)`
-    color: red;
-    display: ${props => props.theme.display ? 'flex' : 'none'};
-`

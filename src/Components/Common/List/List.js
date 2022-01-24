@@ -1,43 +1,45 @@
 import React from 'react';
-import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle
-} from 'reactstrap';
-import Button from '../Button/Button';
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'
 
-
-function List({ data }) {
-
-    //console.log("List", props)
-
+function List({data}) {
     return (
         <div className='col-3 pt-4'>
-            <div>
-                <Card>
-                    <CardBody>
-                        <CardTitle tag="h5">
-                            {data.name ? data.name : null}
-                        </CardTitle>
-                        <CardSubtitle
-                            className="mb-2 text-muted"
-                            tag="h6"
-                        >
-                            {data.price ? "Price: " + data.price : null}
-                        </CardSubtitle>
-                        <CardText>
-                            {data.quantity ? "Quantity: " + data.quantity : null}
-                            <br />
-                            {data.expiry ? "Expiry: " + data.expiry : null}
-                        </CardText>
-                        <Button color="green">
-                            Edit
-                        </Button>
-                        <Button color="red">
-                            Delete
-                        </Button>
-                    </CardBody>
-                </Card>
-            </div>
+            <Card
+            >
+                <CardBody>
+                    {
+                        data.name !== undefined ?
+                            <CardTitle tag="h5">
+                                {data.name}
+                            </CardTitle> :
+                            null
+                    }
+
+                    {
+                        data.price !== undefined ?
+                            <CardSubtitle
+                                className="mb-2 text-muted"
+                                tag="h6"
+                            >
+                                Price: {data.price}
+                            </CardSubtitle>
+                            : null
+                    }
+
+                    {
+                        data.expiry && data.quantity ?
+                            <CardText>
+                                Expiry: {data.expiry} <br />
+                                Quantity: {data.quantity}
+                            </CardText>
+                        : null
+                    }
+                    
+                    
+
+                    
+                </CardBody>
+            </Card>
         </div>
     );
 }
