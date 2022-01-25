@@ -35,18 +35,20 @@ function Header(props) {
                             <li><a className="nav-link scrollto" href="./pages/doctors.html">Doctors</a></li>
                             <li>
                                 <NavLink to="/medicines" className="nav-link scrollto ">Medicines</NavLink>
-                                
+
                             </li>
                             <li>
                                 <NavLink to="/about" className="nav-link scrollto ">About</NavLink>
-                                
+
                             </li>
                             <li><a className="nav-link scrollto" href="./pages/contact.html">Contact</a></li>
                         </ul>
                         <i className="bi bi-list mobile-nav-toggle" />
                     </nav>
-                    <a href="./pages/appointment.html" className="appointment-btn scrollto"><span className="d-none d-md-inline">Make an</span>
-                        Appointment</a>
+                    <NavLink to="/book_appointment" className="appointment-btn scrollto">
+                        <span className="d-none d-md-inline">Make an </span>
+                        Appointment
+                    </NavLink>
                     <NavLink to="/login" className="appointment-btn scrollto"><span className="d-none d-md-inline">Login/ Signup</span></NavLink>
                 </div>
             </header>

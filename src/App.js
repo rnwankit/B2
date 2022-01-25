@@ -11,6 +11,8 @@ import pageNotFound from './Components/pageNotFound';
 import Login from './Containers/Login';
 import Counter from './Containers/Counter';
 import Medicines from './Containers/Medicines';
+import BookAppointment from './Containers/BookAppointment';
+import ListAppointment from './Containers/ListAppointment';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/counter" component={Counter} />
         <Route path="/medicines" component={Medicines} />
+        <Route path="/book_appointment" component={BookAppointment} />
+        <Route path="/list_appointment" component={ListAppointment} />
         <Redirect to="/pageNotFound" />
       </Switch>
       <Footer />
