@@ -23,6 +23,16 @@ function ListAppointment(props) {
         history.push("/book_appointment", {"id": id})
     }
 
+    const handleDelete = (id) => {
+        let localData = JSON.parse(localStorage.getItem("appointment"));
+
+        let fData = localData.filter((l) => l.id !== id);
+
+        localStorage.setItem("appointment", JSON.stringify(fData));
+
+        loadData();
+    }
+
     return (
         <section id="appointment" className="appointment">
             <div className="container">
@@ -54,6 +64,7 @@ function ListAppointment(props) {
                                         {d.name}
                                     </CardBody>
                                     <Button onClick={() => handleEdit(d.id)}>Edit</Button>
+                                    <Button onClick={() => handleDelete(d.id)}>Delete</Button>
                                 </Card>
                             </div>
                         )

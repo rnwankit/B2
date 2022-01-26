@@ -11,15 +11,26 @@ function BookAppointment(props) {
 
     useEffect(
         () => {
-            if (props.location.state !== undefined) {
-                let localData = JSON.parse(localStorage.getItem("appointment"));
-                
-                let uData = localData.filter((l) => l.id === props.location.state.id)
+            const localData = JSON.parse(localStorage.getItem("appointment"))
 
-                setEditData(uData[0]);
-                console.log(uData[0])
+            if (localData && props.location.state !== undefined && props.location.state !== null) {
+                
+                let dd = props.location.state.id !== undefined ? localData.filter((l) => l.id === props.location.state.id) : null
+
+                props.location.state.id ? setEditData(dd[0]) : setEditData()
             }
+            //validation()
+
             history.replace()
+            // if (props.location.state !== undefined) {
+            //     let localData = JSON.parse(localStorage.getItem("appointment"));
+                
+            //     let uData = props.location.state.id !== undefined ? localData.filter((l) => l.id === props.location.state.id) : null
+
+            //     setEditData(uData[0]);
+            //     console.log(uData[0])
+            // }
+            // history.replace()
             //console.log(props.location.state)
         },
     [])
@@ -189,6 +200,7 @@ function BookAppointment(props) {
                                     type="select"
                                     name="department"
                                     defaultValue={editData ? editData.department : ''}
+                                    key={editData ? editData.department : ''}
                                     onChange={e => setFieldValue("department", e.target.value)}
                                     onBlur={handleBlur}
                                     errors={Boolean(touched.department && errors.department)}
@@ -196,7 +208,7 @@ function BookAppointment(props) {
                                 >
                                     <option value="general" label='general' />
                                     <option value="dental" label='dental' />
-                                    
+                                    <option value="skin" label='skin' />
                                 </InputBox>
                             </div>
                         </div>
@@ -213,7 +225,7 @@ function BookAppointment(props) {
                             />
                         </div>
                         <div className="text-center">
-                            <Button type="submit">Make an Appointment</Button>
+                            <Button type="submit">{editData ? "Update an Appointment" : "Make an Appointment" }</Button>
                         </div>
                     </Form>
                 </FormikProvider>
