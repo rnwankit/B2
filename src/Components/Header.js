@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { isLogin } from '../utils';
 
 function Header(props) {
+    const [status, setStatus] = useState(false);
+
+    const logout = () => {
+        sessionStorage.removeItem("user")
+        setStatus(false)
+    }
+
+    useEffect(() => {
+        if (isLogin()) {
+            setStatus(true)
+        } else {
+            setStatus(false)
+        }
+        return () => {
+
+        }
+    }, [status])
+
+
     return (
         <div className="main-header">
             <div id="topbar" className="d-flex align-items-center fixed-top">
@@ -49,7 +69,17 @@ function Header(props) {
                         <span className="d-none d-md-inline">Make an </span>
                         Appointment
                     </NavLink>
-                    <NavLink to="/login" className="appointment-btn scrollto"><span className="d-none d-md-inline">Login/ Signup</span></NavLink>
+                    {
+                        status ?
+                            <NavLink to="/login" onClick={() => logout()} className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Logout</span>
+                            </NavLink>
+                            :
+                            <NavLink to="/login" className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Login/ Signup</span>
+                            </NavLink>
+
+                    }
                 </div>
             </header>
         </div>

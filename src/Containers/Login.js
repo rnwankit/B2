@@ -9,7 +9,7 @@ function Login(props) {
     const [reset, setReset] = useState(false);
 
     const handleLogin = () => {
-
+        sessionStorage.setItem("user", "123456");
     }
 
     const handleSignup = () => {
