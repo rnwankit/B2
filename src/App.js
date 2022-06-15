@@ -15,6 +15,8 @@ import BookAppointment from './Containers/BookAppointment';
 import ListAppointment from './Containers/ListAppointment';
 import PublicRoute from './route/PublicRoute';
 import PrivateRoute from './route/PrivateRoute';
+import Appointment from './Containers/Appointment';
+import LAppointment from './Containers/LAppointment';
 
 function App() {
   return (
@@ -27,8 +29,8 @@ function App() {
         <PublicRoute restricted={true} exact path="/login" component={Login} />
         <PublicRoute exact path="/counter" component={Counter} />
         <PublicRoute exact path="/medicines" component={Medicines} />
-        <PrivateRoute path="/book_appointment" component={BookAppointment} />
-        <PrivateRoute path="/list_appointment" component={ListAppointment} />
+        <PrivateRoute path="/appointment" component={Appointment} />
+        <PrivateRoute path="/lappointment" component={LAppointment} />
         <Redirect to="/pageNotFound" />
       </Switch>
       <Footer />
